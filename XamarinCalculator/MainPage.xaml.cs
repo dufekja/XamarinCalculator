@@ -14,5 +14,12 @@ namespace XamarinCalculator
         {
             InitializeComponent();
         }
+
+        void OnButtonClicked(object sender, EventArgs args)
+        {
+            Button button = (Button)sender;
+            LabelEval.Text += button.Text;
+        }
+
     }
 }
