@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using DynamicExpresso;
 
 namespace XamarinCalculator
 {
@@ -16,39 +17,58 @@ namespace XamarinCalculator
             InitializeComponent();
         }
 
-        public string Eval(string expression)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                var result = dt.Compute(expression, "");
-                return result.ToString();
-            } catch
-            {
-                return "ERROR";
-            }
-        }
+        /// <summary>
+        /// Jednoduchá funkce Eval, která vypočítá zadaný příklad
+        /// </summary>
+        /// <param name="expression">String s vloženým příkladem</param>
+        /// <returns>Vrací string již vypočítaného příkladu</returns>
+        public string Eval(string expression) {
+            string outcome = "";
+            try {
+                var interpreter = new Interpreter();
+                var result = interpreter.Eval(expression);
+                outcome = result.ToString();
 
-        void OnButtonClicked(object sender, EventArgs args)
-        {
+            } catch {
+                outcome = "ERROR";
+            }
+            return outcome;
+        }
+        
+        /// <summary>
+        /// Při kliknutí na jekékoliv tlačítko provede akci ke konkrétnímu tlačítku
+        /// </summary>
+        /// <param name="sender">Objekt, který spustil onClick event</param>
+        /// <param name="args">Další argumenty okna</param>
+        void OnButtonClicked(object sender, EventArgs args) {
+
+            // získá text vybraného tlačítka
             Button button = (Button)sender;
             string buttonText = button.Text;
-            if (buttonText == "=")
-            {
-                LabelEval.Text = Eval(LabelEval.Text);
-            } else
-            {
-                if (LabelEval.Text == "ERROR")
-                {
-                    LabelEval.Text = buttonText;
-                } else
-                {
-                    LabelEval.Text += buttonText;
-                }
-                
-            }
-           
-        }
 
+            // provede se akce pro typ tlačítka
+            switch (buttonText) {
+                case "=":
+                    LabelEval.Text = Eval(LabelEval.Text);
+                    break;
+
+                case "DEL":
+                    string text = LabelEval.Text;
+                    LabelEval.Text = text.Substring(0, text.Length - 1);
+                    break;
+
+                case "AC":
+                    LabelEval.Text = "";
+                    break;
+
+                default:
+                    if (LabelEval.Text == "ERROR") {
+                        LabelEval.Text = buttonText;
+                    } else {
+                        LabelEval.Text += buttonText;
+                    }
+                    break;
+            }    
+        }
     }
 }

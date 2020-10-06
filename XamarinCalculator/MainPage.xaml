@@ -58,11 +58,15 @@
         <Button Clicked="OnButtonClicked" Text="9" Grid.Row="6" Grid.Column="4" BackgroundColor="Black" TextColor="white" FontSize="30"/>
 
         <Button Clicked="OnButtonClicked" Text="0" Grid.Row="7" Grid.Column="2" BackgroundColor="Black" TextColor="white" FontSize="30"/>
-        <Button Clicked="OnButtonClicked" Text="," Grid.Row="7" Grid.Column="3" BackgroundColor="Black" TextColor="white" FontSize="30"/>
-        <Button Clicked="OnButtonClicked" Text="=" Grid.Row="7" Grid.Column="4" BackgroundColor="#FF4500" TextColor="white" FontSize="30"/>
+        <Button Clicked="OnButtonClicked" Text="(" Grid.Row="7" Grid.Column="3" BackgroundColor="Black" TextColor="white" FontSize="30"/>
+        <Button Clicked="OnButtonClicked" Text=")" Grid.Row="7" Grid.Column="4" BackgroundColor="Black" TextColor="white" FontSize="30"/>
+        <Button Clicked="OnButtonClicked" Text="." Grid.Row="8" Grid.Column="2" BackgroundColor="Black" TextColor="white" FontSize="30"/>
+        <Button Clicked="OnButtonClicked" Text="DEL" Grid.Row="8" Grid.Column="3" BackgroundColor="Black" TextColor="white" FontSize="16"/>
+        <Button Clicked="OnButtonClicked" Text="AC" Grid.Row="8" Grid.Column="4" BackgroundColor="Black" TextColor="white" FontSize="16"/>
+        <Button Clicked="OnButtonClicked" Text="=" Grid.Row="8" Grid.Column="5" BackgroundColor="#FF4500" TextColor="white" FontSize="30"/>
 
-        <Button Clicked="OnButtonClicked" Text="%" Grid.Row="4" Grid.Column="5" BackgroundColor="#FF8C00" TextColor="white" FontSize="30"/>
-        <Button Clicked="OnButtonClicked" Text="X" Grid.Row="5" Grid.Column="5" BackgroundColor="#FF8C00" TextColor="white" FontSize="30"/>
+        <Button Clicked="OnButtonClicked" Text="/" Grid.Row="4" Grid.Column="5" BackgroundColor="#FF8C00" TextColor="white" FontSize="30"/>
+        <Button Clicked="OnButtonClicked" Text="*" Grid.Row="5" Grid.Column="5" BackgroundColor="#FF8C00" TextColor="white" FontSize="30"/>
         <Button Clicked="OnButtonClicked" Text="-" Grid.Row="6" Grid.Column="5" BackgroundColor="#FF8C00" TextColor="white" FontSize="30"/>
         <Button Clicked="OnButtonClicked" Text="+" Grid.Row="7" Grid.Column="5" BackgroundColor="#FF8C00" TextColor="white" FontSize="30"/>
 
