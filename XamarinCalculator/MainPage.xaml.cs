@@ -12,6 +12,10 @@ namespace XamarinCalculator
 {
     public partial class MainPage : ContentPage
     {
+        public interface IStatusBarPlatformSpecific {
+            void SetStatusBarColor(Color Color);
+        }
+
         public MainPage()
         {
             InitializeComponent();
@@ -54,7 +58,11 @@ namespace XamarinCalculator
 
                 case "DEL":
                     string text = LabelEval.Text;
-                    LabelEval.Text = text.Substring(0, text.Length - 1);
+                    if (text == "ERROR") {
+                        LabelEval.Text = "";
+                    } else {
+                        LabelEval.Text = text.Substring(0, text.Length - 1);
+                    }
                     break;
 
                 case "AC":
